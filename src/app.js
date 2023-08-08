@@ -10,7 +10,7 @@ import {prodManager} from "./utils.js"
 const app= express()
 const PORT =8080
 const prod=prodManager()
-const allProds = await prod.getProducts()
+
 
 
 app.use(express.json())
@@ -30,9 +30,9 @@ const httpServer= app.listen(PORT,()=>{
 
 const socketServer= new Server(httpServer)
 
-socketServer.on('connection', (socket)=>{
+socketServer.on('connection', async(socket)=>{
     console.log(`Se conecto ${socket.id}`)
-
+    const allProds = await prod.getProducts()
     socket.on('disconnect',()=>{console.log(`Se desconecto ${socket.id}`)})
     socketServer.emit('allProds',allProds)
     
