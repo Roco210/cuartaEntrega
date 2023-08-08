@@ -18,9 +18,6 @@ export class mesageManager{
     }
     async readMesage(){
         const data = await fs.promises.readFile(this.path, 'utf-8')
-        if(typeof(data)){
-            console.log(typeof(data))
-        }
         return data
     }
     async deleteMesage(){

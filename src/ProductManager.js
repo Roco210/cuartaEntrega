@@ -66,6 +66,7 @@ export class ProductManager {
     }
     async deleteProduct(id) {
         try {
+            
             let list = await this.product()
             if (list.findIndex(e => e.id == id) !== -1) {
                 const newList = list.filter(e => e.id != id)

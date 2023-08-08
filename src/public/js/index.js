@@ -2,6 +2,8 @@ const socketClient = io();
 
 const prodRealTime= document.getElementById("realTimeProds");
 
+
+
 socketClient.on('allProds',(data)=>{
     
     const allprods = data
@@ -11,4 +13,5 @@ socketClient.on('allProds',(data)=>{
         });
     console.log(allprods)
     prodRealTime.innerHTML =allprods
+
 });

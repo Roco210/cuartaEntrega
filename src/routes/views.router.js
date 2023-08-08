@@ -29,7 +29,7 @@ router.get('/serchProd', (req,res)=>{
 })
 router.get("/mesage",async (req,res)=>{
     const mesage =await msj.readMesage()
-    /* await msj.deleteMesage() */
+    await msj.deleteMesage()
     res.render("mesage",{mesage})
 })
 
